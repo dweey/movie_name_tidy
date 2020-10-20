@@ -138,6 +138,10 @@ func (rc *RunCommand) Tide(name string) {
 		if err != nil {
 			fmt.Println("请输入数字!")
 		} else {
+			if id == 0 {
+				fmt.Println("取消!")
+				return
+			}
 			id = id - 1
 			if result.Get(fmt.Sprintf("data.%v.custom_name", id)).Exists() {
 				newName = result.Get(fmt.Sprintf("data.%v.custom_name", id)).String()
